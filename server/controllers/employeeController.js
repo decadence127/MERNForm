@@ -1,0 +1,42 @@
+const Employee = require("../entities/entities");
+
+class EmployeeController {
+  async create(req, res) {
+    try {
+      const { employeeSurname, employeeSalary, managerSurname } = req.body;
+      const candidateEmployee = await Employee.findOne({
+        employeeSurname,
+        managerSurname,
+      });
+      if (candidateEmployee) {
+        return res
+          .status(400)
+          .json({ message: "This employee is already exists in database." });
+      }
+      const employee = new Employee({
+        employeeSurname,
+        employeeSalary,
+        managerSurname,
+      });
+
+      await employee.save(function (err, employee) {
+        if (err) return console.error(err);
+        console.log(employee);
+      });
+      console.log("Employee", employee);
+      return res.status(201).json({ message: "New employee has been saved." });
+    } catch (e) {
+      res.status(500).json({ message: "Internal Error. Try again." });
+    }
+  }
+  async showAllEmployees(req, res) {
+    try {
+      const allEmployees = await Employee.find({});
+      console.log(allEmployees);
+      return res.json(allEmployees);
+    } catch (e) {
+      res.status(500).json({ message: "Cannot process get method" });
+    }
+  }
+}
+module.exports = new EmployeeController();
