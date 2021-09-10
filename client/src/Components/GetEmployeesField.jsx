@@ -34,7 +34,7 @@ export default function GetEmployeesField(){
 return(
 
   <ThemeProvider theme={theme}>
-    <Grid container direction="row" style={{margin: 30}}>
+    <Grid container direction="row">
       <Grid container  spacing={4}>
         {employees.length && employees.map(employee=>(
           <Grid item  xl={3} lg={3} sm={12} xs={12} >
