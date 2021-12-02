@@ -2,5 +2,7 @@ import React from 'react'
 import FormPropsTextFields from '../Components/FormPropsField'
 
 export const EmployeeCreationPage = () =>{
-  return(<FormPropsTextFields/>)
+  return(<div>
+    <FormPropsTextFields/>
+    </div>)
 }

@@ -1,0 +1,17 @@
+.employeeBox {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-evenly;
+  background-color: white;
+  border: 1px solid darkgray;
+  border-radius: 5px;
+  padding: 8px 12px 8px 12px;
+  min-width: 430px;
+  min-height: 150px;
+}
+.employeeBox .employeeData {
+  margin-left: 24px;
+}
+.button {
+  margin: 0 auto;
+}
